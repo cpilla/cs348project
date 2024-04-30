@@ -1,0 +1,24 @@
+<form method="POST">
+    {% csrf_token %}  # Add CSRF token for security
+    <p>
+        <label for="puid">PUID:</label>
+        <input type="number" name="puid" id="puid" value="{{ object.puid }}">
+    </p>
+    <p>
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" value="{{ object.name }}">
+    </p>
+    <p>
+      <label for="nickname">Nickname:</label>
+      <input type="text" name="nickname" id="nickname" value="{{ object.nickname }}">
+    </p>
+    <p>
+        <label for="purdue_email">Purdue_Email:</label>
+        <input type="text" name="purdue_email" id="purdue_email" value="{{ object.purdue_email }}">
+    </p>
+    <p>
+        <label for="position">Position:</label>
+        {{form.position}}
+    </p>
+    <button type="submit">Save</button>
+  </form>

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}View List{% endblock %}
+
+{% block content %}
+	<h1>{{ls.puid}}</h1>
+    <ul>
+        <li>{{ls.name}}</li>
+        <li>{{ls.nickname}}</li>
+        <li>{{ls.purdue_email}}</li>
+        <li>{{ls.position}}</li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Players List</title>
+</head>
+<body>
+    <h1>Players</h1>
+    <ul>
+        {% for player in players %}
+            <li>
+                {{ player.name }} ({{ player.position }}) ({{ player.puid }}) ({{player.purdue_email}})
+                <a href="{% url 'player_edit' player.puid %}">Edit</a>
+                <a href="{% url 'player_delete' player.puid %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'player_add' %}">Add Player</a>
+
+</body>
+</html>

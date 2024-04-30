@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Player Stats</title>
+    </head>
+<body>
+    <h1>Player Stats</h1>
+    <form method="get">
+        <label for="player">Select Player:</label>
+        <select name="player" id="player">
+            {% for player in players %}
+                <option value="{{ player.puid }}">{{ player.name }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">View Stats</button>
+    </form>
+    {% if selected_player %}
+        <h2>Stats for {{ selected_player.name }}</h2>
+        <ul>
+            <li>Win Rate: {{ player_winrate }}% (Calculated based on all games)</li>
+            <li>Number of Teams: {{ player_team_count }}</li>
+            <li>Highest Win Rate Team: {{ highest_winrate_team.name }} ({{ highest_winrate }}%)</li>
+            <li>Lowest Win Rate Team: {{ lowest_winrate_team.name }} ({{ lowest_winrate }}%)</li>
+        </ul>
+    {% endif %}
+
+    </body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Player</title>
+</head>
+<body>
+    <h1>Edit Player: {{ player.name }}</h1>
+
+    <form method="post">
+        {% csrf_token %}  {{ form.as_p }}
+
+        <button type="submit">Save Changes</button>
+    </form>
+</body>
+</html>

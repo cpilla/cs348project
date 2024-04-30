@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Team</title>
+</head>
+<body>
+    <h1>Edit Team: {{ team.name }}</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <h2>Assigned Players</h2>
+        <ul>
+            {% for player in assigned_players %}  <li>
+                    <input type="checkbox" name="players" value="{{ player.player.puid }}" checked>  {{ player.player.name }} ({{ player.player.puid }})
+                </li>
+            {% endfor %}
+        </ul>
+
+        <h2>Available Players (Optional)</h2>
+        <ul>
+            {% for player in available_players %}
+                {% if player not in team.playerteam_set.all %}  <li>
+                        <input type="checkbox" name="players" value="{{ player.puid }}">
+                        {{ player.name }} ({{ player.puid }})
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+
+        <button type="submit">Save Changes</button>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teams List</title>
+</head>
+<body>
+    <h1>Teams</h1>
+    <ul>
+        {% for team in teams %}
+            <li>
+                {{ team.name }}
+                (Wins: {{ team.wins }}, Losses: {{ team.losses }})
+                <a href="{% url 'team_edit' team.id %}">Edit</a>
+                <a href="{% url 'team_delete' team.id %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'team_add' %}">Add Team</a>
+
+</body>
+</html>

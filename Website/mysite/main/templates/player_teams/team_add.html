@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Team</title>
+</head>
+<body>
+    <h1>Add Team</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <h2>Assign Players (Optional)</h2>
+        <ul>
+            {% for player in players %}
+                <li>
+                    <input type="checkbox" name="players" value="{{ player.puid }}" checked> {{ player.name }} ({{ player.puid }})
+                </li>
+            {% endfor %}
+        </ul>
+
+
+        <button type="submit">Create Team</button>
+    </form>
+</body>
+</html>
